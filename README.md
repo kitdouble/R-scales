@@ -5,10 +5,9 @@ R functions to help with scoring and cleaning scales
 
 The function can be loaded into R using:
 
-`
-devtools::source_url("https://raw.github.com/kitdouble/R-scales/master/scoreScales.R")
+`devtools::source_url("https://raw.github.com/kitdouble/R-scales/master/scoreScales.R")`
 
-`
+
 
 ## scoreScales function
 
@@ -28,7 +27,4 @@ This function is designed to streamline the scoring of surveys from Qualtrics or
 
 Example
 
-`
-<- scoreScales(data = mydata, prefix = "NEUR_", key =  c(1, 1,1,2,-1,-2,1,3,3,-3), rev.score.max = 7, fun = "mean", names = c("Scale1", "Scale2", "Scale3"), ignore.na = F, append = F)
-
-`
+`mydata <- scoreScales(data = mydata, prefix = "NEUR_", key =  c(1, 1,1,2,-1,-2,1,3,3,-3), rev.score.max = 7, fun = "mean", names = c("Scale1", "Scale2", "Scale3"), ignore.na = F, append = F)`
