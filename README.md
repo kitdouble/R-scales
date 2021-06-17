@@ -11,7 +11,7 @@ The function can be loaded into R using:
 
 ## scoreScales function
 
-This function is designed to streamline the scoring of surveys from Qualtrics or elsewhere by allowing for the input of a single scoring key across subscales. For example a key (1,1,1,-1,2,2,3,3) can be imputed for subscales that share a common naming prefix and they will be scored separately as three subscale. Negative values are reverse scored. The function work with up to 10 subscales. The Cronbach's alpha for all subscales is printed
+This function is designed to streamline the scoring of surveys from Qualtrics or elsewhere by allowing for the input of a single scoring key across subscales. For example a key (1,1,1,-1,2,2,3,3) can be imputed for subscales that share a common naming prefix and they will be scored separately as three subscales. Negative values in they key are reverse scored. The function will work with up to 10 subscales. The Cronbach's alpha for all subscales is printed alongside the total scores for each subscale.
 
 
 ### Parameters
