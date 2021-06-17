@@ -17,7 +17,7 @@ This function is designed to streamline the scoring of surveys from Qualtrics or
 ### Parameters
 
 **data**: The name of the dataframe    
-**prefix**: The shared prefix for the scale e.g. "Q1_" or "Neur*.   
+**prefix**: The shared prefix for the scale e.g. "Q1_" or "Neur".   
 **key**: Scoring key for all items in all subscales in order of column index. Numbers refer to different subscales and negative values are reverse scored e.g. c(1,-1,2,2,3,3) will score 3 subscales with the second item of the first subscale reverse scored.   
 **rev.score.max**: A numerical value which is the reverse scored items are subtracted, typically the maximum response on the scale.    
 **fun**: Two values are possible "mean" will take the average of the items and "sum" will take the sum.   
