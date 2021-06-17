@@ -2,10 +2,16 @@ scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean",
   # Select scale
   df <- data[,grepl(paste("^", prefix, sep = ""), colnames(mydata))]
   
-  # Check inputs
-  length(key) == ncol(df)
+ # Check inputs
   nscales = max(abs(key))
-  length(names) == nscales
+  
+  if(length(key) != ncol(df)) 
+    stop("Key length is not the same as number of columns with prefix")
+  
+  if(length(names) != nscales) 
+    stop("Names list is not the same length the same as number of columns with prefix")
+  
+
   
   # Separate into sub-scales
   sub1 <- abs(key)== 1
