@@ -1,6 +1,15 @@
 # R-scales
 R functions to help with scoring and cleaning scales
 
+# Load the function
+
+The function can be loaded into R using:
+
+`
+devtools::source_url("https://raw.github.com/kitdouble/R-scales/master/scoreScales.R")
+
+`
+
 ## scoreScales function
 
 This function is designed to streamline the scoring of surveys from Qualtrics or elsewhere by allowing for the input of a single scoring key across subscales. For example a key (1,1,1,-1,2,2,3,3) can be imputed for subscales that share a common naming prefix and they will be scored separately as three subscale. Negative values are reverse scored. The function work with up to 10 subscales. The Cronbach's alpha for all subscales is printed
@@ -16,3 +25,10 @@ This function is designed to streamline the scoring of surveys from Qualtrics or
 **names**: A list of the subscales column names. Should correspond to the numerical value given to a subscale e.g. the first name should correspond to the 1 value in the key.   
 **ignore.na**: Should missing values be ignored or should they return an NA for the subscale in which they appear.   
 **append**: Should the total scores be appended to the original dataframe or should they be returned as an object on their own.   
+
+Example
+
+`
+<- scoreScales(data = mydata, prefix = "NEUR_", key =  c(1, 1,1,2,-1,-2,1,3,3,-3), rev.score.max = 7, fun = "mean", names = c("Scale1", "Scale2", "Scale3"), ignore.na = F, append = F)
+
+`
