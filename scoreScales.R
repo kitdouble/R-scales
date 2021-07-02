@@ -6,7 +6,7 @@ scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean",
   nscales = max(abs(key))
   
   if(length(key) != ncol(df)) 
-    stop("Key length is not the same as number of columns with prefix")
+stop(paste("Key length is not the same as number of columns with prefix (",ncol(df), ")", sep = ""))
   
   if(length(names) != nscales) 
     stop("Names list is not the same length the same as number of columns with prefix")
