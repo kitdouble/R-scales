@@ -1,6 +1,6 @@
 scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean", names, ignore.na, append = T){
   # Select scale
-  df <- data[,grepl(paste("^", prefix, sep = ""), colnames(mydata))]
+  df <- data[,grepl(paste("^", prefix, sep = ""), colnames(data))]
   
  # Check inputs
   nscales = max(abs(key))
