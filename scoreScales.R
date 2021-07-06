@@ -1,18 +1,18 @@
-scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean", names, ignore.na, append = T){
+scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean", names, ignore.na, rel.table, append = T){
   # Select scale
   df <- data[,grepl(paste("^", prefix, sep = ""), colnames(data))]
   
- # Check inputs
+  # Check inputs
   nscales = max(abs(key))
   
   if(length(key) != ncol(df)) 
-stop(paste("Key length is not the same as number of columns with prefix (",ncol(df), ")", sep = ""))
+    stop(paste("Key length is not the same as number of columns with prefix (",ncol(df), ")", sep = ""))
   
   if(length(names) != nscales) 
     stop("Names list is not the same length the same as number of columns with prefix")
   
-
-    if(missing(rev.score.max)) {
+  
+  if(missing(rev.score.max)) {
     rev.score.max=max(df[,1], na.rm = T)+1
   }
   
@@ -105,6 +105,23 @@ stop(paste("Key length is not the same as number of columns with prefix (",ncol(
   if(nscales == 10) a <- cbind(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
   colnames(a) <- names
   print(a)
+  
+  if(!missing(rel.table)) {
+    
+    if (file.exists(rel.table))
+      b <- read.csv(gsub(" ","", rel.table, fixed=TRUE), header = TRUE,stringsAsFactors=FALSE)
+    
+    
+    a <- as.data.frame(t(a))
+    a$Scale <- rownames(a)
+    colnames(a) <- c("Alpha", "Scale")
+    a <- a[,c("Scale", "Alpha")]
+    a$Alpha <- round(a$Alpha, 3)
+     if(exists("b")){a <- rbind(a,b)}
+    write.csv(a, rel.table, row.names = F)
+    
+  }
+  
   
   # Append data
   if(append == T) x <- cbind(data, x) 
