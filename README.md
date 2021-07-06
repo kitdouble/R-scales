@@ -23,7 +23,7 @@ This function is designed to streamline the scoring of surveys from Qualtrics or
 **fun**: Two values are possible "mean" will take the average of the items and "sum" will take the sum.   
 **names**: A list of the subscales column names. Should correspond to the numerical value given to a subscale e.g. the first name should correspond to the 1 value in the key.   
 **ignore.na**: Should missing values be ignored or should they return an NA for the subscale in which they appear.   
-**rel.table**: A file path where a relaibility table should be saved. If a file already exists this will append the current reliability, so a running table can be made
+**rel.table**: A file path where a relaibility table should be saved. If a file already exists this will append the current reliability, so a running table can be made.    
 **append**: Should the total scores be appended to the original dataframe or should they be returned as an object on their own.   
 
 Example
