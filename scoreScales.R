@@ -12,6 +12,11 @@ stop(paste("Key length is not the same as number of columns with prefix (",ncol(
     stop("Names list is not the same length the same as number of columns with prefix")
   
 
+    if(missing(rev.score.max)) {
+    rev.score.max=max(df[,1], na.rm = T)+1
+  }
+  
+  
   
   # Separate into sub-scales
   sub1 <- abs(key)== 1
