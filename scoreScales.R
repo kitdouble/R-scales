@@ -1,6 +1,7 @@
-scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean", names, ignore.na, rel.table, append = T){
+scoreScales <- function(data = mydata, prefix = NULL, items = NULL, key, rev.score.max, fun = "mean", names, ignore.na, rel.table, append = T){
   # Select scale
-  df <- data[,grepl(paste("^", prefix, sep = ""), colnames(data))]
+  if(!is.null(prefix)) df <- data[,grepl(paste("^", prefix, sep = ""), colnames(data))]
+  if(is.null(prefix)) df <- data[,names(data) %in% items]
   
   # Check inputs
   nscales = max(abs(key))
@@ -117,7 +118,7 @@ scoreScales <- function(data = mydata, prefix, key, rev.score.max, fun = "mean",
     colnames(a) <- c("Alpha", "Scale")
     a <- a[,c("Scale", "Alpha")]
     a$Alpha <- round(a$Alpha, 3)
-     if(exists("b")){a <- rbind(a,b)}
+    if(exists("b")){a <- rbind(a,b)}
     write.csv(a, rel.table, row.names = F)
     
   }
