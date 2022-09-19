@@ -1,7 +1,7 @@
 scoreScales <- function(data = mydata, prefix = NULL, items = NULL, key, rev.score.max, fun = "mean", names, ignore.na, rel.table, append = T){
   # Select scale
   if(!is.null(prefix)) df <- data[,grepl(paste("^", prefix, sep = ""), colnames(data))]
-  if(is.null(prefix)) df <- data[,names(data) %in% items]
+  if(is.null(prefix)) df <- data[,items]
   
   # Check inputs
   nscales = max(abs(key))
